@@ -27,13 +27,29 @@
               margin: 20px auto;
               width: 70%;
               border-radius: 10px;}
-      header{background: linear-gradient(red,gold);
+      header{background: linear-gradient(limegreen,,yellow,red,gold);
              padding: 30px;
              text-align:center;
              border-radius: 10px;}
       p{text-indent: 2em;}
 
       .zoom:hover{tranform: scale(1.5); cursor:pointer;}
+
+      img:hover{animation: glowcolors 1.2s infinite alternate;}
+      @keyframes glowcolors{
+        0% {box-shadow: 0 0 20px hotpink;}
+        25% {box-shadow: 0 0 20px skyblue;}
+        50% {box-shadow: 0 0 20px gold;}
+        75% {box-shadow: 0 0 20px violet;}
+        100% {box-shadow: 0 0 20px red;
+             }
+
+        .blink-bg{
+           animation: blinkbg 1s infinite alternate;
+        padding: 3px 6px;
+      }
+      @keyframes blinkingbg{
+        0% {background: yellow;}
         </style>
   </head>
   <body background="https://png.pngtree.com/thumb_back/fh260/background/20230616/pngtree-soccer-field-in-a-3d-rendered-stadium-image_3633766.jpg">
@@ -61,3 +77,22 @@
       ❤ ประเพณีชาวจตุรมิตร <br>
       😎 ผู้จัดทำ
     </div>
+    <section>
+      <center>
+        <h1><mark>ประวัติ</mark></h1>
+      </center>
+      <p>การแข่งขันฟุตบอลประเพณีจตุรมิตรสามัคคีเป็นความคิดริเริ่มของนายโปร่ง ส่งแสงเติม อาจารย์ใหญ่โรงเรียนสวนกุหลาบวิทยาลัย กับนายอารีย์ เสมประสาท อาจารย์ใหญ่โรงเรียนกรุงเทพคริสเตียนวิทยาลัย ทั้งสองท่านได้มาขอความร่วมมือจากนายบุญอวบ บูรณะบุตร อาจารย์ใหญ่โรงเรียนเทพศิรินทร์ และนายบรรณา ชโนดม อาจารย์ใหญ่โรงเรียนอัสสัมชัญ ให้ร่วมกันจัดการแข่งขันฟุตบอลระหว่างสี่สถาบัน เพื่อเชื่อมความสามัคคีของครูอาจารย์และนักเรียนทุกฝ่าย ซึ่งอาจารย์ทั้งสี่มีความเห็นพ้องกัน
+      </p>
+      <br><br>
+      <center>
+        <span class="blink-bg">รูปบุคคลสำคัญผู้ริเริ่มจตุรมิตร</span>
+        <br><br>
+        <img src="" width=250 height=250 class="zoom">
+        <img src="" width=250 height=250 class="zoom">
+        <img src="" width=250 height=250 class="zoom">
+        <img src="" width=250 height=250 class="zoom">
+      </center>
+      <hr style="height: 8px; width: 80%;
+      background:linear-gradient(to right, limegreen,yellow,pink,skyblue,violet,gold,red,white
+        
+    </section>
