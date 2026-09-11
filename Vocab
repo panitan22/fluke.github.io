@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EC;
+    --paper-line:#E1DBC8;
+    --ink:#22262B;
+    --ink-soft:#585349;
+    --band:#22262B;
+
+    --c1:#3A5A80; /* career - denim */
+    --c2:#6E7A38; /* -ough family - olive */
+    --c3:#7C4E92; /* inspiration - plum */
+    --c4:#1E7A72; /* compound adj - teal */
+    --c5:#B07C1C; /* animals/tech - mustard */
+    --c6:#49529C; /* innovation - indigo */
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(34,38,43,0.045) 27px, rgba(34,38,43,0.045) 28px),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Sarabun', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 0 56px;
+  }
+
+  /* header */
+  .band{
+    background:var(--band);
+    color:var(--paper);
+    padding:34px 40px 28px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:18px;
+    border-bottom:5px solid var(--c3);
+  }
+  .band h1{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:42px;
+    margin:0 0 4px;
+    letter-spacing:0.2px;
+  }
+  .band p.sub{
+    margin:0;
+    font-size:14.5px;
+    color:#C9C5B9;
+  }
+  .fields{
+    display:flex;
+    gap:22px;
+    font-size:13px;
+    color:#C9C5B9;
+  }
+  .fields span{
+    display:inline-block;
+    border-bottom:1px solid #56534A;
+    min-width:110px;
+    padding-bottom:3px;
+  }
+
+  /* sections */
+  .section{
+    margin:34px 28px 0;
+    background:#FFFEFB;
+    border:1px solid var(--paper-line);
+    border-left:6px solid var(--accent);
+    border-radius:3px;
+    padding:20px 26px 22px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px dashed var(--paper-line);
+  }
+  .badge{
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:21px;
+    margin:0;
+    color:var(--ink);
+  }
+  .section-head .th{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin-left:auto;
+  }
+
+  /* standard word grid */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px 28px;
+  }
+  .item{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:8px 0;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .item .en{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:15.5px;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .item .th{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    text-align:right;
+  }
+
+  /* ough family special layout */
+  .ladder{
+    display:flex;
+    flex-direction:column;
+  }
+  .ladder-row{
+    display:grid;
+    grid-template-columns:150px 90px 1fr;
+    align-items:center;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .ladder-row:last-child{border-bottom:none;}
+  .ladder-row .en{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:18px;
+  }
+  .ladder-row .en .rest{color:var(--ink);}
+  .ladder-row .en .ough{color:var(--c2);}
+  .ladder-row .pron{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .ladder-row .th{
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:640px){
+    .band{padding:26px 20px 22px;}
+    .band h1{font-size:32px;}
+    .section{margin:24px 14px 0; padding:16px 16px 18px;}
+    .grid{grid-template-columns:1fr;}
+    .item .th{text-align:left;}
+    .item{flex-direction:column; gap:2px;}
+    .ladder-row{grid-template-columns:120px 70px 1fr; font-size:13px;}
+    .fields{width:100%; justify-content:space-between;}
+    .fields span{min-width:80px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="band">
+    <div>
+      <h1>Vocabulary Notes</h1>
+      <p class="sub">สมุดคำศัพท์ภาษาอังกฤษ · ใบงานทบทวนคำศัพท์</p>
+    </div>
+    <div class="fields">
+      <div>ชื่อ <span>&nbsp;</span></div>
+      <div>ห้อง/เลขที่ <span>&nbsp;</span></div>
+    </div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section" style="--accent:var(--c1)">
+    <div class="section-head">
+      <div class="badge">1</div>
+      <h2>Career &amp; Workplace</h2>
+      <span class="th">การทำงานและอาชีพ</span>
+    </div>
+    <div class="grid">
+      <div class="item"><span class="en">Put out</span><span class="th">ดับ (ไฟ)</span></div>
+      <div class="item"><span class="en">In charge of</span><span class="th">ดูแล / รับผิดชอบ / เป็นหัวหน้า</span></div>
+      <div class="item"><span class="en">Promotion</span><span class="th">การเลื่อนตำแหน่ง</span></div>
+      <div class="item"><span class="en">Requirements</span><span class="th">คุณสมบัติที่ต้องการ / ข้อกำหนด</span></div>
+      <div class="item"><span class="en">Emphasis</span><span class="th">การเน้นย้ำ / การให้ความสำคัญ</span></div>
+      <div class="item"><span class="en">Skills</span><span class="th">ทักษะ / ความสามารถ</span></div>
+      <div class="item"><span class="en">Resident</span><span class="th">ผู้อยู่อาศัย / ประชาชนในพื้นที่</span></div>
+      <div class="item"><span class="en">Excel</span><span class="th">ทำได้ดีเยี่ยม / โดดเด่น</span></div>
+      <div class="item"><span class="en">Put off</span><span class="th">ทำให้หมดกำลังใจ / ไม่อยากทำ</span></div>
+      <div class="item"><span class="en">Commitment</span><span class="th">ข้อผูกมัด / การทุ่มเทเวลา</span></div>
+      <div class="item"><span class="en">Flexible</span><span class="th">ยืดหยุ่น</span></div>
+      <div class="item"><span class="en">Instinctively</span><span class="th">โดยสัญชาตญาณ</span></div>
+      <div class="item"><span class="en">Trust</span><span class="th">ไว้ใจ / เชื่อใจ</span></div>
+      <div class="item"><span class="en">Gradually</span><span class="th">ค่อยๆ เป็นค่อยไป / ทีละนิด</span></div>
+    </div>
+  </div>
+
+  <!-- Section 2: ough family -->
+  <div class="section" style="--accent:var(--c2)">
+    <div class="section-head">
+      <div class="badge">2</div>
+      <h2>The &ldquo;-ough&rdquo; Family</h2>
+      <span class="th">คำสะกดคล้ายกัน ระวังสับสน</span>
+    </div>
+    <div class="ladder">
+      <div class="ladder-row">
+        <span class="en"><span class="rest">T</span><span class="ough">ough</span></span>
+        <span class="pron">ทัฟ</span>
+        <span class="th">ยาก / อดทน / ถึก</span>
+      </div>
+      <div class="ladder-row">
+        <span class="en"><span class="rest">Thr</span><span class="ough">ough</span></span>
+        <span class="pron">ธรู</span>
+        <span class="th">ผ่าน / ทะลุ</span>
+      </div>
+      <div class="ladder-row">
+        <span class="en"><span class="rest">Thor</span><span class="ough">ough</span></span>
+        <span class="pron">เธิร์-โร</span>
+        <span class="th">ละเอียดถี่ถ้วน</span>
+      </div>
+      <div class="ladder-row">
+        <span class="en"><span class="rest">Th</span><span class="ough">ough</span></span>
+        <span class="pron">โธ</span>
+        <span class="th">ถึงแม้ว่า / แต่</span>
+      </div>
+      <div class="ladder-row">
+        <span class="en"><span class="rest">Th</span><span class="ough">ought</span></span>
+        <span class="pron">ธอท</span>
+        <span class="th">ความคิด / คิดแล้ว</span>
+      </div>
+      <div class="ladder-row">
+        <span class="en"><span class="rest">Thr</span><span class="ough">ough</span>out</span>
+        <span class="pron">ธรู-เอาท์</span>
+        <span class="th">ตลอดทั้ง / ทั่วทั้ง</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section" style="--accent:var(--c3)">
+    <div class="section-head">
+      <div class="badge">3</div>
+      <h2>Inspiration &amp; Learning</h2>
+      <span class="th">แรงบันดาลใจและการเรียนรู้</span>
+    </div>
+    <div class="grid">
+      <div class="item"><span class="en">Inspired</span><span class="th">ได้รับแรงบันดาลใจ</span></div>
+      <div class="item"><span class="en">Achievement</span><span class="th">ความสำเร็จ</span></div>
+      <div class="item"><span class="en">Catapulted</span><span class="th">พุ่งทะยาน / โด่งดังอย่างรวดเร็ว</span></div>
+      <div class="item"><span class="en">Dull</span><span class="th">น่าเบื่อ / ไร้ชีวา</span></div>
+      <div class="item"><span class="en">Memorized</span><span class="th">จำได้ / จดจำ</span></div>
+      <div class="item"><span class="en">Knowledge</span><span class="th">ความรู้</span></div>
+      <div class="item"><span class="en">Sundial</span><span class="th">นาฬิกาแดด</span></div>
+      <div class="item"><span class="en">Pantry</span><span class="th">ห้องเก็บอาหาร</span></div>
+      <div class="item"><span class="en">Visualize</span><span class="th">นึกภาพในใจ</span></div>
+      <div class="item"><span class="en">Stumble</span><span class="th">สะดุดเจอ / บังเอิญไปเจอ</span></div>
+      <div class="item"><span class="en">Essentially</span><span class="th">โดยพื้นฐาน / หลักๆ แล้ว</span></div>
+      <div class="item"><span class="en">Associate</span><span class="th">เชื่อมโยง / นึกเชื่อมโยง</span></div>
+      <div class="item"><span class="en">Manoeuvre</span><span class="th">จัดวาง / ขยับเปลี่ยนตำแหน่ง</span></div>
+      <div class="item"><span class="en">Benefit</span><span class="th">ได้รับประโยชน์</span></div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section" style="--accent:var(--c4)">
+    <div class="section-head">
+      <div class="badge">4</div>
+      <h2>Compound Adjectives</h2>
+      <span class="th">คำคุณศัพท์ผสม บอกลักษณะคน</span>
+    </div>
+    <div class="grid">
+      <div class="item"><span class="en">Right-hand</span><span class="th">มือขวา / คนสนิท</span></div>
+      <div class="item"><span class="en">Cold-blooded</span><span class="th">เลือดเย็น</span></div>
+      <div class="item"><span class="en">Thick-skinned</span><span class="th">ด้านชา / ไม่สนคำวิจารณ์</span></div>
+      <div class="item"><span class="en">Narrow-minded</span><span class="th">ใจแคบ</span></div>
+      <div class="item"><span class="en">Fair-haired</span><span class="th">ผมสีอ่อน / คนโปรด</span></div>
+      <div class="item"><span class="en">Level-headed</span><span class="th">สุขุม / มีสติ</span></div>
+      <div class="item"><span class="en">Kind-hearted</span><span class="th">ใจดี</span></div>
+      <div class="item"><span class="en">Short-sighted</span><span class="th">สายตาสั้น / มองการณ์สั้น</span></div>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section" style="--accent:var(--c5)">
+    <div class="section-head">
+      <div class="badge">5</div>
+      <h2>Animals, Health &amp; Tech</h2>
+      <span class="th">สัตว์ สุขภาพ และเทคโนโลยี</span>
+    </div>
+    <div class="grid">
+      <div class="item"><span class="en">Reduce</span><span class="th">ลดลง</span></div>
+      <div class="item"><span class="en">Flock</span><span class="th">อพยพ / แห่กันไป</span></div>
+      <div class="item"><span class="en">Overcrowding</span><span class="th">แออัดเกินไป</span></div>
+      <div class="item"><span class="en">Treat</span><span class="th">รักษา</span></div>
+      <div class="item"><span class="en">Life-threatening</span><span class="th">เป็นอันตรายถึงชีวิต</span></div>
+      <div class="item"><span class="en">Catastrophe</span><span class="th">โศกนาฏกรรม / ความหายนะ</span></div>
+      <div class="item"><span class="en">Set up</span><span class="th">ตั้ง / ก่อตั้ง</span></div>
+      <div class="item"><span class="en">Smart</span><span class="th">ฉลาด / อัจฉริยะ</span></div>
+      <div class="item"><span class="en">Limbs</span><span class="th">แขนขา</span></div>
+      <div class="item"><span class="en">Regenerate</span><span class="th">งอกใหม่ / ฟื้นฟู</span></div>
+      <div class="item"><span class="en">Malfunctioning</span><span class="th">ทำงานผิดปกติ</span></div>
+      <div class="item"><span class="en">Search engine</span><span class="th">เครื่องมือค้นหาข้อมูล</span></div>
+      <div class="item"><span class="en">Provide</span><span class="th">จัดหาให้ / ให้</span></div>
+      <div class="item"><span class="en">Interpreting</span><span class="th">แปลความหมาย</span></div>
+      <div class="item"><span class="en">Reason</span><span class="th">ใช้เหตุผล</span></div>
+    </div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section" style="--accent:var(--c6)">
+    <div class="section-head">
+      <div class="badge">6</div>
+      <h2>Innovation &amp; Gadgets</h2>
+      <span class="th">นวัตกรรมและสิ่งประดิษฐ์</span>
+    </div>
+    <div class="grid">
+      <div class="item"><span class="en">State of the art</span><span class="th">ทันสมัยที่สุด</span></div>
+      <div class="item"><span class="en">Eco-friendly</span><span class="th">เป็นมิตรต่อสิ่งแวดล้อม</span></div>
+      <div class="item"><span class="en">Unconventional</span><span class="th">แปลกใหม่ / แหวกแนว</span></div>
+      <div class="item"><span class="en">Biometric</span><span class="th">ทางชีวมิติ (สแกนร่างกาย)</span></div>
+      <div class="item"><span class="en">Ultimate labour-saving</span><span class="th">ช่วยทุ่นแรงขั้นสุด</span></div>
+      <div class="item"><span class="en">Cordless</span><span class="th">ไร้สาย</span></div>
+      <div class="item"><span class="en">Digital</span><span class="th">ดิจิทัล</span></div>
+      <div class="item"><span class="en">Innovate</span><span class="th">สร้างสรรค์สิ่งใหม่</span></div>
+      <div class="item"><span class="en">Sonic</span><span class="th">คลื่นเสียง / ความเร็วเสียง</span></div>
+      <div class="item"><span class="en">Wacky</span><span class="th">เพี้ยน / แปลกหลุดโลก</span></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
